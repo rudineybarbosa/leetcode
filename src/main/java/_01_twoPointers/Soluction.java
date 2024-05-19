@@ -28,4 +28,34 @@ public class Soluction {
         return new int[]{-1,-1};
     }
 
+    /**
+     * if nums [0,1,3,0,12] -> return [1,3,12,0,0]
+     * if nums [2,1,3,0,12] -> return [2,1,3,12,0]
+     *
+     */
+    public int[] moveZeroes(int[] nums){
+        //base case
+        int n = nums.length;
+        if(n < 2) return new int []{};
+
+        //define pointers
+        int left = 0;
+        int right = 1;
+
+        //move zeros to bac
+        while(right < n){
+            if(nums[left] != 0 ){
+                left++;
+                right++;
+            } else if(nums[right] == 0){
+                right++;
+            } else {
+                int temp = nums[right];
+                nums[right] = nums[left];
+                nums[left] = temp;
+            }
+        }
+
+        return nums;
+    }
 }

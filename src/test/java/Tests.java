@@ -37,5 +37,34 @@ public class Tests {
 
     }
 
+    @Test
+    public void testMoveZeroes(){
+        //test 01
+        int[] nums = new int[]{0,1,0,3,12};
+        int[] expected = new int[]{1,3,12,0,0};
 
+        int[] result = soluction.moveZeroes(nums);
+        Assertions.assertArrayEquals(expected, result);
+
+        //test 02
+        nums = new int[]{2,1,0,3,12};
+        expected = new int[]{2,1,3,12,0};
+
+        result = soluction.moveZeroes(nums);
+        Assertions.assertArrayEquals(expected, result);
+
+        //test 03
+        nums = new int[]{2};
+        expected = new int[]{};
+
+        result = soluction.moveZeroes(nums);
+        Assertions.assertArrayEquals(expected, result);
+
+        //test 04
+        nums = new int[]{2,3,4,5};
+        expected = nums;
+
+        result = soluction.moveZeroes(nums);
+        Assertions.assertArrayEquals(expected, result);
+    }
 }
