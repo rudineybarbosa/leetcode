@@ -67,4 +67,5 @@ public class Tests {
         result = soluction.moveZeroes(nums);
         Assertions.assertArrayEquals(expected, result);
     }
+
 }
