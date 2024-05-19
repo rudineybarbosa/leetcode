@@ -29,6 +29,8 @@ public class Soluction {
     }
 
     /**
+     * Two pointers - moving zeros to back
+     *
      * if nums [0,1,3,0,12] -> return [1,3,12,0,0]
      * if nums [2,1,3,0,12] -> return [2,1,3,12,0]
      *
@@ -57,5 +59,34 @@ public class Soluction {
         }
 
         return nums;
+    }
+
+
+    /**
+     * nums[] is sorted
+     *
+     * nums[1,1,2] -> result 2, nums[1,2]
+     * nums[0,0,1,1,1,2,2,3,3,4] -> result 5, nums[0,1,2,3,4]
+     * nums[]
+     *
+     * @param nums
+     * @return length of resulted array
+     */
+    public int removingDuplicates(int[] nums){
+        //base case
+        int n = nums.length;
+        if(n < 2) return n;
+
+        //define pointers
+        int left = 0;
+        int right = 1;
+        while(right < n){
+            if(nums[right] != nums[left]){
+                nums[left+1] = nums[right];
+                left++;
+            }
+            right++;
+        }
+        return left+1;
     }
 }

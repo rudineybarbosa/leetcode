@@ -68,4 +68,36 @@ public class Tests {
         Assertions.assertArrayEquals(expected, result);
     }
 
+    @Test
+    public void testRemovingDuplicates(){
+        //test 01
+        int[] nums = new int[] {1,1,2};
+        int expected = 2;
+        int result = soluction.removingDuplicates(nums);
+        Assert.assertEquals(expected,result);
+
+        //test 02
+        nums = new int[] {0,0,1,1,1,2,2,3,3,4};
+        expected = 5;
+        result = soluction.removingDuplicates(nums);
+        Assert.assertEquals(expected,result);
+
+        //test 03
+        nums = new int[] {0,0};
+        expected = 1;
+        result = soluction.removingDuplicates(nums);
+        Assert.assertEquals(expected,result);
+
+        //test 04
+        nums = new int[] {0,1};
+        expected = 2;
+        result = soluction.removingDuplicates(nums);
+        Assert.assertEquals(expected,result);
+
+        //test 05
+        nums = new int[] {0,1,2,3,4};
+        expected = 5;
+        result = soluction.removingDuplicates(nums);
+        Assert.assertEquals(expected,result);
+    }
 }
