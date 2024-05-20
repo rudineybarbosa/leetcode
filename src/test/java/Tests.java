@@ -100,4 +100,21 @@ public class Tests {
         result = soluction.removingDuplicates(nums);
         Assert.assertEquals(expected,result);
     }
+
+    @Test
+    public void testSquareSorted(){
+        //test 01
+        int[] nums = new int[]{-9,-8,-7,-3,2,3,11};
+        int[] expected = new int[] {4,9,9,49,64,81,121};
+        int[] result = soluction.squareSorted(nums);
+
+        Assertions.assertArrayEquals(expected,result);
+
+        //test 02
+        nums = new int[]{-4,-1,0,3,10,11};
+        expected = new int[] {0,1,9,16,100,121};
+        result = soluction.squareSorted(nums);
+
+        Assertions.assertArrayEquals(expected,result);
+    }
 }
