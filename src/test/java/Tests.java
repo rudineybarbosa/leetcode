@@ -117,4 +117,65 @@ public class Tests {
 
         Assertions.assertArrayEquals(expected,result);
     }
+
+    @Test
+    public void testMaxArea(){
+        int[] heigths = new int[]{1,8,6,2,5,4,8,3,7};
+        int expected = 49;
+        int result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+
+        heigths = new int[]{8,-1,6,2,5,4,8,3,7};
+        expected = 56;
+        result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+
+        heigths = new int[]{4,3,2,1,4};
+        expected = 16;
+        result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+
+        heigths = new int[]{1,2,1};
+        expected = 2;
+        result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+
+        heigths = new int[]{0,15,6,9,5,10,8,3,1};
+        expected = 40;
+        result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+
+        heigths = new int[]{1,-1,-2,3,1};
+        expected = 8;
+        result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+    }
+
+    @Test
+    public void testMaxAreaSecondsoluction(){
+        int[] heigths = new int[]{1,8,6,2,5,4,8,3,7};
+        int expected = 49;
+        int result = soluction.maxAreaSecondSolution(heigths);
+        Assert.assertEquals(expected,result);
+
+        heigths = new int[]{8,-1,6,2,5,4,8,3,7};
+        expected = 56;
+        result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+
+        heigths = new int[]{4,3,2,1,4};
+        expected = 16;
+        result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+
+        heigths = new int[]{1,2,1};
+        expected = 2;
+        result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+
+        heigths = new int[]{0,15,6,9,5,10,8,3,1};
+        expected = 40;
+        result = soluction.maxArea(heigths);
+        Assert.assertEquals(expected,result);
+    }
 }

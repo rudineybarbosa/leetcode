@@ -144,4 +144,69 @@ public class Soluction {
         return result;
     }
 
+    /**
+     * Return the max area
+     * if heights[1,8,6,2,5,4,8,3,7] then return 49:
+     *  height = min height between two higher height = 7
+     *  base   = distance between higher height index = index for first 8 (1) and index for 7(8) = 7
+     *  result = 7 * 7 = 49
+     * @param heights
+     * @return
+     */
+    public int maxArea(int[] heights){
+        //define pointers
+        int left = 0;
+        int right = heights.length - 1;
+
+        //define height, base and maxArea
+        int height = 0;
+        int base = 0;
+        int maxArea = Integer.MIN_VALUE;
+
+        while(left < right){
+            if(heights[left] < 0 || heights[right] < 0){
+                height = Math.abs(heights[left]) + Math.abs(heights[right]);
+            } else{
+                height = Math.min(heights[left], heights[right]);
+            }
+            base = Math.abs((left-right));
+            int areaTemp = height*base;
+            maxArea = Math.max(areaTemp, maxArea);
+            if(heights[left] < heights[right]){
+                left++;
+            } else{
+                right--;
+            }
+        }
+        return maxArea;
+    }
+
+    public int maxAreaSecondSolution(int[] heights){
+        //define pointers
+        int left = 0;
+        int n = heights.length-1;
+
+        //define two higher
+        int firstHigher = Integer.MIN_VALUE;
+        int indexFirstHigher = 0;
+        int secondHigher = Integer.MIN_VALUE;
+        int indexSecondHigher = 0;
+
+        while(left <= n){
+            if(heights[left] > firstHigher){
+               firstHigher = heights[left];
+               indexFirstHigher = left;
+            }
+            if(heights[left] != firstHigher && heights[left] > secondHigher && secondHigher < firstHigher){
+                secondHigher = heights[left];
+                indexSecondHigher = left;
+            }
+            left++;
+        }
+        int base = Math.abs(indexFirstHigher - indexSecondHigher);
+        int height = Math.min(firstHigher, secondHigher);
+        int maxArea =  base * height;
+
+        return maxArea;
+    }
 }
